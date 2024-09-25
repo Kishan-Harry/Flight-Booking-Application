@@ -1,0 +1,50 @@
+travel_type,flight_number,airport,destination,country,stopovers,duration,date,price,airline
+International,ANZ1347,Los Angeles International Airport,"Los Angeles, USA",USA,0,780,2024-08-15 14:30:00,1500.5,Air New Zealand
+International,QF2653,Sydney Kingsford Smith Airport,"Sydney, Australia",Australia,0,210,2024-09-10 10:15:00,500.0,Qantas
+International,JAL4592,Haneda Airport,"Tokyo, Japan",Japan,1,900,2024-10-05 22:45:00,1200.75,Japan Airlines
+International,SIA1839,Changi Airport,"Singapore, Singapore",Singapore,0,600,2024-11-20 18:00:00,950.25,Singapore Airlines
+International,EMR3842,Dubai International Airport,"Dubai, UAE",UAE,1,1020,2024-12-01 07:20:00,1750.4,Emirates
+International,BA2857,Heathrow Airport,"London, UK",UK,1,1280,2024-08-25 16:55:00,1900.85,British Airways
+International,AA4921,John F. Kennedy International Airport,"New York, USA",USA,0,1020,2024-09-15 06:10:00,1600.35,American Airlines
+International,JAL1398,Narita International Airport,"Tokyo, Japan",Japan,0,870,2024-10-20 12:25:00,1100.5,Japan Airlines
+International,CPA1934,Hong Kong International Airport,"Hong Kong, China",China,0,660,2024-11-05 21:40:00,1300.6,Cathay Pacific
+International,KAL2721,Incheon International Airport,"Seoul, South Korea",South Korea,0,780,2024-12-15 09:00:00,1400.7,Korean Air
+International,ANZ2437,Los Angeles International Airport,"Los Angeles, USA",USA,1,820,2024-08-20 15:45:00,1550.8,Air New Zealand
+International,QF3342,Sydney Kingsford Smith Airport,"Sydney, Australia",Australia,0,210,2024-09-30 13:10:00,510.0,Qantas
+International,JAL9823,Haneda Airport,"Tokyo, Japan",Japan,1,950,2024-10-14 17:50:00,1210.75,Japan Airlines
+International,SIA4598,Changi Airport,"Singapore, Singapore",Singapore,0,610,2024-11-22 20:10:00,960.25,Singapore Airlines
+International,EMR7624,Dubai International Airport,"Dubai, UAE",UAE,1,1030,2024-12-05 08:25:00,1760.4,Emirates
+International,BA5628,Heathrow Airport,"London, UK",UK,1,1290,2024-08-30 18:00:00,1910.85,British Airways
+International,AA8712,John F. Kennedy International Airport,"New York, USA",USA,0,1030,2024-09-18 11:20:00,1610.35,American Airlines
+International,JAL4753,Narita International Airport,"Tokyo, Japan",Japan,0,880,2024-10-25 14:35:00,1110.5,Japan Airlines
+International,CPA9483,Hong Kong International Airport,"Hong Kong, China",China,0,670,2024-11-08 23:50:00,1310.6,Cathay Pacific
+International,KAL6521,Incheon International Airport,"Seoul, South Korea",South Korea,0,790,2024-12-18 07:10:00,1410.7,Korean Air
+International,ANZ1784,Los Angeles International Airport,"Los Angeles, USA",USA,1,830,2024-08-22 16:55:00,1560.8,Air New Zealand
+International,QF9843,Sydney Kingsford Smith Airport,"Sydney, Australia",Australia,0,220,2024-09-22 12:20:00,520.0,Qantas
+International,JAL5321,Haneda Airport,"Tokyo, Japan",Japan,1,960,2024-10-17 18:55:00,1220.75,Japan Airlines
+International,SIA3948,Changi Airport,"Singapore, Singapore",Singapore,0,620,2024-11-24 21:20:00,970.25,Singapore Airlines
+International,EMR4982,Dubai International Airport,"Dubai, UAE",UAE,1,1040,2024-12-07 10:30:00,1770.4,Emirates
+International,BA7628,Heathrow Airport,"London, UK",UK,1,1300,2024-09-01 19:05:00,1920.85,British Airways
+International,AA4723,John F. Kennedy International Airport,"New York, USA",USA,0,1040,2024-09-21 12:25:00,1620.35,American Airlines
+International,JAL9238,Narita International Airport,"Tokyo, Japan",Japan,0,890,2024-10-28 15:40:00,1120.5,Japan Airlines
+International,CPA4932,Hong Kong International Airport,"Hong Kong, China",China,0,680,2024-11-11 01:00:00,1320.6,Cathay Pacific
+International,KAL9432,Incheon International Airport,"Seoul, South Korea",South Korea,0,800,2024-12-21 08:15:00,1420.7,Korean Air
+International,ANZ5938,Los Angeles International Airport,"Los Angeles, USA",USA,1,840,2024-08-24 18:00:00,1570.8,Air New Zealand
+International,QF5639,Sydney Kingsford Smith Airport,"Sydney, Australia",Australia,0,230,2024-09-25 14:30:00,530.0,Qantas
+International,JAL8639,Haneda Airport,"Tokyo, Japan",Japan,1,970,2024-10-30 20:45:00,1230.75,Japan Airlines
+International,SIA4837,Changi Airport,"Singapore, Singapore",Singapore,0,630,2024-11-27 22:30:00,980.25,Singapore Airlines
+International,EMR4329,Dubai International Airport,"Dubai, UAE",UAE,1,1050,2024-12-10 11:35:00,1780.4,Emirates
+International,BA2837,Heathrow Airport,"London, UK",UK,1,1310,2024-09-03 20:10:00,1930.85,British Airways
+International,AA4929,John F. Kennedy International Airport,"New York, USA",USA,0,1050,2024-09-23 13:35:00,1630.35,American Airlines
+International,JAL9348,Narita International Airport,"Tokyo, Japan",Japan,0,900,2024-11-01 16:45:00,1130.5,Japan Airlines
+International,CPA4239,Hong Kong International Airport,"Hong Kong, China",China,0,690,2024-11-14 02:10:00,1330.6,Cathay Pacific
+International,KAL8327,Incheon International Airport,"Seoul, South Korea",South Korea,0,810,2024-12-23 09:20:00,1430.7,Korean Air
+International,ANZ1938,Los Angeles International Airport,"Los Angeles, USA",USA,1,850,2024-08-26 19:10:00,1580.8,Air New Zealand
+International,QF8943,Sydney Kingsford Smith Airport,"Sydney, Australia",Australia,0,240,2024-09-28 15:40:00,540.0,Qantas
+International,JAL3482,Haneda Airport,"Tokyo, Japan",Japan,1,980,2024-11-03 21:55:00,1240.75,Japan Airlines
+International,SIA2374,Changi Airport,"Singapore, Singapore",Singapore,0,640,2024-11-30 23:40:00,990.25,Singapore Airlines
+International,EMR4987,Dubai International Airport,"Dubai, UAE",UAE,1,1060,2024-12-13 12:40:00,1790.4,Emirates
+International,BA3948,Heathrow Airport,"London, UK",UK,1,1320,2024-09-05 21:20:00,1940.85,British Airways
+International,AA5839,John F. Kennedy International Airport,"New York, USA",USA,0,1060,2024-09-25 14:45:00,1640.35,American Airlines
+International,SIA2841,Changi Airport,"Singapore, Singapore",Singapore,0,620,2024-12-10 20:30:00,1000.0,Singapore Airlines
+International,QF2235,Sydney Kingsford Smith Airport,"Sydney, Australia",Australia,0,210,2024-12-15 11:45:00,520.0,Qantas

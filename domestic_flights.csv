@@ -1,0 +1,51 @@
+travel_type,flight_number,airport,destination,country,stopovers,duration,date,price,airline
+Domestic,DOM0001,Queenstown Airport,"Queenstown, New Zealand",New Zealand,0,90,2024-08-15 09:00:00,210.0,Air New Zealand
+Domestic,DOM0002,Christchurch Airport,"Christchurch, New Zealand",New Zealand,0,80,2024-08-16 10:30:00,190.0,Jetstar
+Domestic,DOM0003,Wellington Airport,"Wellington, New Zealand",New Zealand,0,75,2024-08-17 12:15:00,200.0,Air New Zealand
+Domestic,DOM0004,Dunedin Airport,"Dunedin, New Zealand",New Zealand,0,100,2024-08-18 14:45:00,220.0,Air Chatham
+Domestic,DOM0005,Nelson Airport,"Nelson, New Zealand",New Zealand,0,85,2024-08-19 16:30:00,180.0,Jetstar
+Domestic,DOM0006,Christchurch Airport,"Christchurch, New Zealand",New Zealand,0,78,2024-08-20 08:00:00,185.0,Air New Zealand
+Domestic,DOM0007,Wellington Airport,"Wellington, New Zealand",New Zealand,0,73,2024-08-21 11:30:00,195.0,Jetstar
+Domestic,DOM0008,Queenstown Airport,"Queenstown, New Zealand",New Zealand,0,92,2024-08-22 13:15:00,205.0,Air New Zealand
+Domestic,DOM0009,Nelson Airport,"Nelson, New Zealand",New Zealand,0,88,2024-08-23 15:00:00,175.0,Air Chatham
+Domestic,DOM0010,Dunedin Airport,"Dunedin, New Zealand",New Zealand,0,98,2024-08-24 17:45:00,225.0,Air New Zealand
+Domestic,DOM0011,Wellington Airport,"Wellington, New Zealand",New Zealand,0,77,2024-08-25 19:30:00,190.0,Jetstar
+Domestic,DOM0012,Queenstown Airport,"Queenstown, New Zealand",New Zealand,0,91,2024-08-26 06:15:00,210.0,Air Chatham
+Domestic,DOM0013,Christchurch Airport,"Christchurch, New Zealand",New Zealand,0,82,2024-08-27 08:45:00,195.0,Air New Zealand
+Domestic,DOM0014,Nelson Airport,"Nelson, New Zealand",New Zealand,0,84,2024-08-28 10:30:00,180.0,Jetstar
+Domestic,DOM0015,Dunedin Airport,"Dunedin, New Zealand",New Zealand,0,101,2024-08-29 12:45:00,225.0,Air New Zealand
+Domestic,DOM0016,Wellington Airport,"Wellington, New Zealand",New Zealand,0,76,2024-08-30 15:00:00,185.0,Air Chatham
+Domestic,DOM0017,Queenstown Airport,"Queenstown, New Zealand",New Zealand,0,93,2024-09-01 17:30:00,210.0,Jetstar
+Domestic,DOM0018,Christchurch Airport,"Christchurch, New Zealand",New Zealand,0,79,2024-09-02 19:15:00,200.0,Air New Zealand
+Domestic,DOM0019,Nelson Airport,"Nelson, New Zealand",New Zealand,0,86,2024-09-03 09:00:00,185.0,Air Chatham
+Domestic,DOM0020,Dunedin Airport,"Dunedin, New Zealand",New Zealand,0,99,2024-09-04 11:45:00,230.0,Air New Zealand
+Domestic,DOM0021,Wellington Airport,"Wellington, New Zealand",New Zealand,0,74,2024-09-05 14:30:00,190.0,Jetstar
+Domestic,DOM0022,Queenstown Airport,"Queenstown, New Zealand",New Zealand,0,89,2024-09-06 16:00:00,215.0,Air New Zealand
+Domestic,DOM0023,Christchurch Airport,"Christchurch, New Zealand",New Zealand,0,81,2024-09-07 18:30:00,190.0,Air Chatham
+Domestic,DOM0024,Nelson Airport,"Nelson, New Zealand",New Zealand,0,87,2024-09-08 20:15:00,175.0,Jetstar
+Domestic,DOM0025,Dunedin Airport,"Dunedin, New Zealand",New Zealand,0,95,2024-09-09 21:45:00,220.0,Air New Zealand
+Domestic,DOM0026,Wellington Airport,"Wellington, New Zealand",New Zealand,0,79,2024-09-10 07:30:00,185.0,Jetstar
+Domestic,DOM0027,Queenstown Airport,"Queenstown, New Zealand",New Zealand,0,94,2024-09-11 09:15:00,205.0,Air New Zealand
+Domestic,DOM0028,Christchurch Airport,"Christchurch, New Zealand",New Zealand,0,80,2024-09-12 10:00:00,195.0,Jetstar
+Domestic,DOM0029,Nelson Airport,"Nelson, New Zealand",New Zealand,0,82,2024-09-13 12:15:00,185.0,Air Chatham
+Domestic,DOM0030,Dunedin Airport,"Dunedin, New Zealand",New Zealand,0,97,2024-09-14 14:45:00,225.0,Air New Zealand
+Domestic,DOM0031,Wellington Airport,"Wellington, New Zealand",New Zealand,0,78,2024-09-15 16:30:00,190.0,Jetstar
+Domestic,DOM0032,Queenstown Airport,"Queenstown, New Zealand",New Zealand,0,90,2024-09-16 18:00:00,210.0,Air Chatham
+Domestic,DOM0033,Christchurch Airport,"Christchurch, New Zealand",New Zealand,0,84,2024-09-17 19:15:00,200.0,Air New Zealand
+Domestic,DOM0034,Nelson Airport,"Nelson, New Zealand",New Zealand,0,88,2024-09-18 20:30:00,180.0,Jetstar
+Domestic,DOM0035,Dunedin Airport,"Dunedin, New Zealand",New Zealand,0,100,2024-09-19 21:45:00,230.0,Air New Zealand
+Domestic,DOM0036,Wellington Airport,"Wellington, New Zealand",New Zealand,0,76,2024-09-20 07:00:00,185.0,Air Chatham
+Domestic,DOM0037,Queenstown Airport,"Queenstown, New Zealand",New Zealand,0,93,2024-09-21 09:30:00,215.0,Jetstar
+Domestic,DOM0038,Christchurch Airport,"Christchurch, New Zealand",New Zealand,0,80,2024-09-22 11:15:00,195.0,Air New Zealand
+Domestic,DOM0039,Nelson Airport,"Nelson, New Zealand",New Zealand,0,85,2024-09-23 13:30:00,180.0,Air Chatham
+Domestic,DOM0040,Dunedin Airport,"Dunedin, New Zealand",New Zealand,0,98,2024-09-24 15:45:00,225.0,Jetstar
+Domestic,DOM0041,Wellington Airport,"Wellington, New Zealand",New Zealand,0,77,2024-09-25 17:00:00,190.0,Air New Zealand
+Domestic,DOM0042,Queenstown Airport,"Queenstown, New Zealand",New Zealand,0,91,2024-09-26 19:15:00,205.0,Air Chatham
+Domestic,DOM0043,Christchurch Airport,"Christchurch, New Zealand",New Zealand,0,82,2024-09-27 20:30:00,190.0,Jetstar
+Domestic,DOM0044,Nelson Airport,"Nelson, New Zealand",New Zealand,0,83,2024-09-28 21:45:00,185.0,Air New Zealand
+Domestic,DOM0045,Dunedin Airport,"Dunedin, New Zealand",New Zealand,0,100,2024-09-29 08:15:00,230.0,Jetstar
+Domestic,DOM0046,Wellington Airport,"Wellington, New Zealand",New Zealand,0,74,2024-09-30 10:30:00,185.0,Air Chatham
+Domestic,DOM0047,Queenstown Airport,"Queenstown, New Zealand",New Zealand,0,92,2024-10-01 12:45:00,215.0,Air New Zealand
+Domestic,DOM0048,Christchurch Airport,"Christchurch, New Zealand",New Zealand,0,79,2024-10-02 14:00:00,195.0,Jetstar
+Domestic,DOM0049,Nelson Airport,"Nelson, New Zealand",New Zealand,0,88,2024-10-03 15:30:00,180.0,Air Chatham
+Domestic,DOM0050,Dunedin Airport,"Dunedin, New Zealand",New Zealand,0,96,2024-10-04 17:45:00,220.0,Air New Zealand
