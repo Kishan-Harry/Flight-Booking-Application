@@ -2140,7 +2140,16 @@ class ConfirmOrder(tk.Frame):
     def send_email(self):
         '''Send email of receipt to user'''
         email_add = self.confirm_entry.get()
-        if len(email_add) ==0:
+        screen = self.controller.get_screen(CreateAccount)
+        valid = screen.validate_email(email_add)
+
+        #If the email is invalid, prompt again.
+        if not valid:
+            msg ="That email is not a valid email address, please try again."  
+            messagebox.showinfo('Information', msg)
+            self.confirmation.destroy()
+
+        elif len(email_add) ==0:
             self.confirmation.destroy()
             messagebox.showinfo('Information', "Please enter an email and try again!")
         else:
@@ -2422,7 +2431,7 @@ class PreviousOrder(tk.Frame):
 
         #Insert data
         for order in user.confirmed_orders:
-            self.bookflight_treeview.insert("", "end", values=(f" Order confirmed on: {order.date}", f" {order.order_length}", f" ${order.price:.2f}"))
+            self.bookflight_treeview.insert("", "end", values=(f" Order confirmed on: {order.date}", f" {order.order_length}", f" ${order.price}"))
 
     def back(self):
         '''Clear data and go back'''
