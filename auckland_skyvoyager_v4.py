@@ -820,6 +820,8 @@ class CreateAccount(tk.Frame, Flight_booker_app):
                         #Clear entry box widgets and direct user to main menu
                         self.controller.clear_entries(entries)
                         self.controller.show_frame(MainMenu)
+                        self.create_account_e_pass.configure(show="*")
+                        self.toggle_button.config(text="SHOW")
 
                     #Breaks out of loop after validation steps
                     break

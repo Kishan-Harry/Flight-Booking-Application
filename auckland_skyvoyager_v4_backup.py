@@ -7,13 +7,10 @@
 #-------------------------------------------------------------------------------------------------------------------------|
 #---------------------------------------------------------IMPORTS---------------------------------------------------------|
 #-------------------------------------------------------------------------------------------------------------------------|
-
 #Allows efficient reading and writing of csv files
 import csv
 import json
 import os
-
-import pandas as pd
 
 #Allows the program to send emails
 from email.mime.multipart import MIMEMultipart
@@ -33,6 +30,7 @@ from tkinter import messagebox
 from tkinter import ttk
 from tkinter import font as tkFont
 
+#***********TO RUN THIS PROGRAM YOU MUST INSTALL THE PILLOW LIBRARY - type in 'pip install Pillow' inside the terminal*************
 #Module used to manipulate images
 from PIL import Image, ImageTk, ImageOps
 
@@ -49,10 +47,11 @@ airlines = {
     "Japan Airlines": "airline_logos/air_japan.png",
     "Singapore Airlines" : "airline_logos/air_singapore.png",
     "Emirates" : "airline_logos/air_emirates.png",
-    "British Airways" : "airline_logos/air_japan.png",
-    "American Airlines" : "airline_logos/jet_star.png",
-    "Cathay Pacific" : "airline_logos/jet_star.png",
+    "British Airways" : "airline_logos/air_emirates.png",
+    "American Airlines" : "airline_logos/air_emirates.png",
+    "Cathay Pacific" : "airline_logos/air_japan.png",
     "Korean Air" : "airline_logos/air_japan.png",
+    "Jetstar" : "airline_logos/jet_star.png"
 }
 
 
@@ -61,9 +60,9 @@ international_flights = []
 domestic_flights = []
 
 #Account consideration
-user_details = [] #Stores account details in dictionary
-#List that will hold the current user object once logged in
-#and will be cleared when the user logs out
+user_details=[] # To store account data
+# List that will hold the current user object once logged in
+# and will be cleared when the user logs out
 logged_user=[]
 #Set to store the flight_type key to determine whether we handle domestic or international flights
 flight_type_key = {"key": None}
@@ -298,11 +297,10 @@ class Current_User:
         #returns the total price
         return total
 
-class Order():
+class Order:
     def __init__(self, date, order_length, price):
         '''Constructor method to define attributes'''
         self.date = date
-        #Contains list of tickets
         self.order_length = order_length
         self.price = price
     
@@ -318,12 +316,12 @@ class Order():
     @classmethod
     def return_order_dict(cls, data):
         '''Creates an instance of an order from a dictionary'''
-        date=data["date"],
-        price=data["price"],
-        order_length=data["order_length"]
-
-        #Return the instantiated order object
-        return cls(date, order_length, price)
+        return cls(
+            date=data["date"],
+            order_length=data["order_length"],
+            price=data["price"],
+        )
+        
     
 #_____________GENERAL FUNCTIONS_______________
 
@@ -350,7 +348,7 @@ class Flight_booker_app(tk.Tk):
         tk.Tk.__init__(self, *args, **kwargs)
 
         #Sets window title to name of application
-        tk.Tk.wm_title(self, "Auckland SkyVoyager") 
+        tk.Tk.wm_title(self, "Auckland Sky Voyager") 
         
         #Disable maximise and minimise
         self.resizable(False,False)
@@ -522,7 +520,7 @@ class LoginMenu(tk.Frame):
         self.controller.bind_button(button_list) 
 
         #Description
-        login_menu_description = tk.Label(left_frame, borderwidth=1, relief="solid", text="Welcome to Auckland SkyVoyager! Book flight tickets from Auckland Domestic and International Airport to suit your travel needs!",justify = "center",  font=("Tahoma", 12),fg="white", bg=MAROON, wraplength=300)
+        login_menu_description = tk.Label(left_frame, borderwidth=1, relief="solid", text="Welcome to Auckland Sky Voyager! Book flight tickets from Auckland Domestic and International Airport to suit your travel needs!",justify = "center",  font=("Tahoma", 12),fg="white", bg=MAROON, wraplength=300)
         
         #Placing widgets on screen
         login_menu_description.place(relx=0.5,rely=0.125, anchor="center", width=590, height =110)
@@ -585,7 +583,8 @@ class CreateAccount(tk.Frame, Flight_booker_app):
         canvas.create_text(407.5, 320, text= "Enter Age:", font = ('Arial', 12, "bold"), fill="darkgreen")
         #Buttons
         create_account_btn_CA = tk.Button(frame, width = 16, text = "CREATE ACCOUNT", font=BUTTON_FONT ,command=lambda: self.create_account(self.create_account_e_first.get(), self.create_account_e_last.get(), self.create_account_e_email.get(), self.create_account_e_pass.get(), self.create_account_e_age.get(), entries)) #'entries' paramater included so the boxes can be cleared
-        self.controller.bind_button([create_account_btn_CA])
+        self.toggle_button = tk.Button(frame, width = 10, text="SHOW", font=BUTTON_2_FONT, command=lambda: self.toggle_pw())
+        self.controller.bind_button([create_account_btn_CA, self.toggle_button])
         #Entries
         self.create_account_e_first = tk.Entry(frame, width=15)
         self.create_account_e_last = tk.Entry(frame, width=15)
@@ -610,6 +609,8 @@ class CreateAccount(tk.Frame, Flight_booker_app):
         
         #Buttons
         create_account_btn_CA.place(relx=0.5,rely=0.865, anchor="center")
+        self.toggle_button.place(relx=0.685, rely=0.61, anchor="center")
+        
 
         #_______________________________________________
 
@@ -644,6 +645,20 @@ class CreateAccount(tk.Frame, Flight_booker_app):
         create_account_btn_back.place(relx=0.5,rely=0.876,anchor="center")
 
         #________________________________________________
+
+    def toggle_pw(self):
+        '''Toggle between showing and hiding the password'''
+        entry = self.create_account_e_pass.get()
+        if len(entry)==0: #If entry is length of 0 function does nothing
+            pass
+        elif self.create_account_e_pass.cget('show') == '*':
+            # If currently hidden, show the password
+            self.create_account_e_pass.configure(show="")
+            self.toggle_button.config(text="HIDE")  # Change button text to "Hide"
+        else:
+            # If currently shown, hide the password
+            self.create_account_e_pass.configure(show="*")
+            self.toggle_button.config(text="SHOW")  # Change button text to "Show"
        
     def create_account(self, first_name, last_name, email, password, age, entries):
         '''Creates account and updates csv file'''
@@ -714,7 +729,6 @@ class CreateAccount(tk.Frame, Flight_booker_app):
                         break
                     
                     #Initialize flag to check if the email already exists in account dict.
-                    #Initialize flag to check if the email already exists in account dict.
                     for account in user_details:
                         if account["email"]==email:
                             msg = "This email has already been taken. Please enter another email address."
@@ -747,12 +761,19 @@ class CreateAccount(tk.Frame, Flight_booker_app):
                         super().config_entry_bg(entry_names["a"], '#FFCCCC')
                     
                     #Asks the user for their age then compares with boundary case
-                    elif int(age) < MIN_AGE or int(age) > MAX_AGE:
-                        msg = "You are not eligibile to create an account. You must be at least 16 years old"
+                    elif int(age) < MIN_AGE:
+                        msg = "Failed to create an account! You are not eligible to create an account. You must be at least 16 years old."
                         
                         #Clear entry box widgets and driect user back to main screen
                         self.controller.show_frame(LoginMenu)
-                        self.controller.clear_entries(entries) #Could also do controller.clear_entries if you don't want to use inheritance
+                        self.controller.clear_entries(entries)
+
+                    elif int(age) > MAX_AGE:
+                        msg = "Failed to create an account! That is not an eligible age!"
+                        
+                        #Clear entry box widgets and driect user back to main screen
+                        self.controller.show_frame(LoginMenu)
+                        self.controller.clear_entries(entries) 
 
                     else:
                         #Append a dictionary with account information to user_details list
@@ -766,10 +787,8 @@ class CreateAccount(tk.Frame, Flight_booker_app):
 
                         #Instantiates a user object with the logged user's attributes
                         user = Current_User(username, email, password)
-                        #Extract saved data (since new account it will be an empty dict)
-                        saved_data = account["data"]
-                        #Adjust the saved_data attribute
-                        user.saved_data = saved_data
+                        #Convert JSON back to dictionary and adjust the saved_data attribute
+                        user.saved_data = {}
 
                         #Sets the current user
                         user.set_current_user()
@@ -782,6 +801,8 @@ class CreateAccount(tk.Frame, Flight_booker_app):
                         #Clear entry box widgets and direct user to main menu
                         self.controller.clear_entries(entries)
                         self.controller.show_frame(MainMenu)
+                        self.create_account_e_pass.configure(show="*")
+                        self.toggle_button.config(text="SHOW")
 
                     #Breaks out of loop after validation steps
                     break
@@ -966,7 +987,7 @@ class Login(tk.Frame, Flight_booker_app):
                     self.controller.show_frame(MainMenu)
                     #Sink the frame and configure widgets back to default
                     self.controller.clear_entries(entries)
-                
+            
                 else:
                     attempts = attempts-1
                     #Highlight entry boxes red
@@ -1280,7 +1301,7 @@ class BookFlight(tk.Frame):
                 #Add the searched up flights:
                 #Load the flights list into the treeview
                 for flight in flights_mod:
-                    self.bookflight_treeview.insert("", "end", values=(f" {flight.flight_number}", f" {flight.travel_type}", f" {flight.airline_name}", f" {flight.airport}", f" {flight.destination}", f" {flight.duration} {unit}",f" {flight.date}", f" ${flight.ticket_price}" ))
+                    self.bookflight_treeview.insert("", "end", values=(f" {flight.flight_number}", f" {flight.travel_type}", f" {flight.airline_name}", f" {flight.airport}", f" {flight.destination}", f" {flight.duration} {unit}",f" {flight.date}", f" ${flight.ticket_price:.2f}" ))
 
     def view_all(self):
         '''View all flights'''
@@ -1305,7 +1326,7 @@ class BookFlight(tk.Frame):
         
         #Load the flights list into the treeview
         for flight in flights_list:
-            self.bookflight_treeview.insert("", "end", values=(f" {flight.flight_number}", f" {flight.travel_type}", f" {flight.airline_name}", f" {flight.airport}", f" {flight.destination}", f" {flight.duration} {unit}",f" {flight.date}", f" ${flight.ticket_price}" ))
+            self.bookflight_treeview.insert("", "end", values=(f" {flight.flight_number}", f" {flight.travel_type}", f" {flight.airline_name}", f" {flight.airport}", f" {flight.destination}", f" {flight.duration} {unit}",f" {flight.date}", f" ${flight.ticket_price:.2f}" ))
 
     def select_flight(self):
         '''Gets the user's selection'''
@@ -2177,7 +2198,7 @@ class ConfirmOrder(tk.Frame):
                 email_body = f"""
                 <html>
                 <body>
-                <p>A summary of tickets ordered on {date_string} by {user.username} ({user.email}) is below:<br></p>
+                <p>A confirmation of ticket(s) ordered on {date_string} by {user.username} ({user.email}) is below:<br></p>
                 """
 
                 # Write each ticket in their order to the file in a table format
@@ -2233,7 +2254,6 @@ class ConfirmOrder(tk.Frame):
 
                     ticket_content+="</table>"
 
-
                     # Find the airline logo file path
                     logo_path = airlines[ticket.airline_name]
 
@@ -2266,8 +2286,8 @@ class ConfirmOrder(tk.Frame):
 
                 #Get the pointer position
                 position = file.tell()
-                
                 #Add total price to email body
+                
                 file.write("\n" + FLIGHT_DISPLAY_HEADERS[0])
                 file.write(f"\n|Total($) |                                                                                                                                            | ${total_price:<7.2f} |")
                 file.write("\n"+FLIGHT_DISPLAY_HEADERS[0])
@@ -2352,6 +2372,7 @@ class Logout (tk.Frame):
 
     def yes(self):
         '''Logs user out of program and saves their cart details'''
+        '''Logs user out of program and saves their cart details'''
         user = logged_user[0]
 
         #Append all user's data to saved_data dictionary by changing the keys
@@ -2431,7 +2452,7 @@ class PreviousOrder(tk.Frame):
 
         #Insert data
         for order in user.confirmed_orders:
-            self.bookflight_treeview.insert("", "end", values=(f" Order confirmed on: {order.date}", f" {order.order_length}", f" ${order.price}"))
+            self.bookflight_treeview.insert("", "end", values=(f" Order confirmed on: {order.date}", f" {order.order_length}", f" ${order.price:.2f}"))
 
     def back(self):
         '''Clear data and go back'''
