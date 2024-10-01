@@ -763,8 +763,7 @@ def create_account():
         account["email"]=user_email
         account["password"] = user_password
         account["data"] = {} #Empty dictionary that will have the user's saved data after logging out
-        user_details.append(account)
-        print(user_details)          
+        user_details.append(account)       
         print("\n\033[1;32;40mAccount created successfully\033[0;37;40m.")
     
     return True

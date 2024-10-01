@@ -763,7 +763,6 @@ class MainMenu(tk.Frame):
         #Retrieve current user object
         user = logged_user[0]
         username = user.username
-        print(username)
         newtext = f"Welcome {username}!  You can now view and book current flights!"
         self.txt.set(newtext)
         self.mainmenu_decription.config(textvariable = self.txt)
@@ -872,15 +871,11 @@ class BookFlight(tk.Frame):
             flight = self.bookflight_treeview.item(selected_item)["values"]
             
             #Get the selected flight number and retrieve the flight object
-            print(flight)
             flight_num = flight[0].strip()
-            print(flight_num)
             for flight_object in self.flight_type:
                 if flight_object.flight_number == flight_num:
                     desired_flight_obj = flight_object
                     break
-            print(desired_flight_obj.flight_number)
-            
             personalisation_screen = self.controller.get_screen(Personalisation)
             personalisation_screen.load_flight(flight, desired_flight_obj)
             self.controller.show_frame(Personalisation)
@@ -1018,9 +1013,6 @@ class Personalisation(tk.Frame):
         #Show error if invalid combobox selections are selected
         ageindex = self.ageclass.current()
         ccindex = self.cabinclass.current()
-        print(ageindex)
-        print(ccindex)
-
         name = self.name_th.get().strip()
 
         #Check for invalid characters in name
@@ -1060,30 +1052,19 @@ class Personalisation(tk.Frame):
                         cabin_class = "Economy"
                     elif ccindex ==3:
                         cabin_class = "Business"
-                    
-                    print(ticket_holder_age)
-                    print(cabin_class)
-
-                    print("Before discount: "+f"{self.flight_obj.ticket_price}")
-                    
+                                        
                     #Instantiates a ticket object with age type and cabin class type attributes
                     user_ticket = Ticket(self.flight_obj.travel_type, self.flight_obj.flight_number, self.flight_obj.airport, self.flight_obj.destination, self.flight_obj.country, self.flight_obj.stopovers, self.flight_obj.duration, self.flight_obj.date, self.flight_obj.ticket_price, self.flight_obj.airline_name, cabin_class, ticket_holder_age, name)
                     #Calculates the new price of the ticket based on their choices
                     user_ticket.ticket_price = user_ticket.apply_discounts(self.flight_obj)
-
-                    print(user_ticket)
-                    print("After discount: "+ f"{user_ticket.ticket_price}")
-
+                
                     #Adds the ticket to the users respective ticket list
                     user = logged_user[0]
                     if type(self.flight_obj)==Domestic:
                         user.add_ticket(user.domestic_tickets, user_ticket)
                     elif type(self.flight_obj)==International:
                         user.add_ticket(user.international_tickets, user_ticket)
-                    
-                    print(user.international_tickets)
-                    print(user.domestic_tickets)
-                    
+                                                          
                     #Empty necessary widgets
                     self.back()
                     #Navigate to mainmenu
@@ -1120,10 +1101,8 @@ class Personalisation(tk.Frame):
         self.cc_options.append("|----Select a Cabin Class---| Price($) |")
         
         if len(flight_obj.cabin_class_types) == 2:
-            print(flight_obj.cabin_class_types)
             self.cc_options.append(f"|First Class                | ${flight_obj.ticket_price*flight_obj.first_class_multiplier:<7.2f} |")
-            self.cc_options.append(f"|Economy Class              | ${flight_obj.ticket_price*flight_obj.economy_class_multiplier:<7.2f} |")
-            print(self.cc_options)
+            self.cc_options.append(f"|Economy Class              | ${flight_obj.ticket_price*flight_obj.economy_class_multiplier:<7.2f} |")       
         elif len(flight_obj.cabin_class_types) ==3:
             self.cc_options.append(f"|First Class                | ${flight_obj.ticket_price*flight_obj.first_class_multiplier:<7.2f} |")
             self.cc_options.append(f"|Economy Class              | ${flight_obj.ticket_price*flight_obj.economy_class_multiplier:<7.2f} |")
@@ -1462,9 +1441,7 @@ class EditOrder(tk.Frame):
                 id = self.treeview.insert("", "end", values=(f"{all_tickets.index(ticket)+1}", f" {ticket.ticket_holder_name}", f" {ticket.ticket_holder_age}", f" {ticket.cabin_class}",f" {ticket.flight_number}", f" {ticket.travel_type}", f" {ticket.airline_name}", f" {ticket.airport}", f" {ticket.destination}", f" {ticket.duration} hrs",f" {ticket.date}", f" ${ticket.ticket_price:.2f}" ))
                 index = all_tickets.index(ticket)
                 #Map the id to the index
-                self.row_map[id] = index
-        
-        print(self.row_map)
+                self.row_map[id] = index      
         
         #Display total price
         price=user.calculate_total_price()
@@ -1480,8 +1457,7 @@ class EditOrder(tk.Frame):
         all_tickets = user.append_tickets()
 
         #Get the tuple of selected items
-        selected_items=self.treeview.selection()
-        print(selected_items)
+        selected_items=self.treeview.selection()      
 
         if not selected_items:
             #No item is selected
@@ -1492,24 +1468,18 @@ class EditOrder(tk.Frame):
             indices = []
             for id in selected_items:
                 index = self.row_map[id]
-                indices.append(index)
-                print(indices)
+                indices.append(index)              
 
             #Check if the ticket selected is domestic or international
             #to remove from appropriate list
             #Reverse the indices so that iterating through the list has no errors
             for index in sorted(indices, reverse=True):
-                if all_tickets[index].travel_type == "Domestic":
-                    print(user.domestic_tickets)
-                    user.remove_ticket(user.domestic_tickets, index)
-                    print(user.domestic_tickets)
-
+                if all_tickets[index].travel_type == "Domestic":                    
+                    user.remove_ticket(user.domestic_tickets, index)               
                 elif all_tickets[index].travel_type == "International":
                     #In case user removes an international ticket
-                    international_index = index - len(user.domestic_tickets)
-                    print(user.international_tickets)
-                    user.remove_ticket(user.international_tickets, international_index)
-                    print(user.international_tickets)
+                    international_index = index - len(user.domestic_tickets)                  
+                    user.remove_ticket(user.international_tickets, international_index)               
             
             #Get the new ticket list
             updated_list = user.append_tickets()
@@ -1539,8 +1509,7 @@ class EditOrder(tk.Frame):
         self.price_box.config(state="disabled")
 
         #Clear dictionary
-        self.row_map.clear()
-        print(self.row_map)
+        self.row_map.clear()       
 
         #Configure cartmenu label
         cart_screen = self.controller.get_screen(CartMenu)

@@ -1248,7 +1248,7 @@ class BookFlight(tk.Frame):
         style.map('Treeview', background=[('selected', "#347083")])
         style.map('TCombobox', fieldbackground=[('readonly', 'white')], background=[('readonly', 'white')], selectbackground=[('readonly', 'white')], selectforeground=[('readonly', 'black')])
         
-        self.bookflight_treeview = ttk.Treeview(bookflight_tv_frame, columns=COLUMNS, show='headings', height = 14, style="Treeview")
+        self.bookflight_treeview = ttk.Treeview(bookflight_tv_frame, columns=COLUMNS, show='headings', height = 14, style="Treeview", selectmode="browse")
         #Headings and columns
         self.controller.create_headings(self.bookflight_treeview, COLUMNS)
         self.bookflight_treeview.column("Flight#:", width=100, anchor="w", minwidth=100)
@@ -1391,16 +1391,8 @@ class BookFlight(tk.Frame):
             self.controller.show_frame(Personalisation)
 
     def clear_selection(self, event):
-        # Get the widget under the mouse cursor
-        widget = self.winfo_containing(event.x_root, event.y_root)
-
-        # Check if the click is outside of the Treeview
-        if widget != self.bookflight_treeview:
-            # Clear the selection in the Treeview
-            self.bookflight_treeview.selection_remove(self.bookflight_treeview.selection())
-
-            # Update the Treeview to reflect the style changes
-            self.bookflight_treeview.tag_configure('selected', background='white')  # Reset background color
+        # Clear the selection in the Treeview
+        self.bookflight_treeview.selection_remove(self.bookflight_treeview.selection())
 
     def back(self):
         '''Clears treeview and goes back'''
